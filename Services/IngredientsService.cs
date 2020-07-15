@@ -41,7 +41,7 @@ namespace timsfinaltacos.Services
     public Ingredient Edit(Ingredient editIngredient)
     {
       Ingredient original = Get(editIngredient.Id);
-      original.Name = editIngredient.Name.Length > 0 ? editIngredient.Name : original.Name;
+      original.Name = editIngredient.Name == null ? original.Name : editIngredient.Name;
       original.KCal = editIngredient.KCal > 0 ? editIngredient.KCal : original.KCal;
       return _repo.Edit(original);
     }

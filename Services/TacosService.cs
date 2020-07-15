@@ -41,9 +41,9 @@ namespace timsfinaltacos.Services
     public Taco Edit(Taco editTaco)
     {
       Taco original = Get(editTaco.Id);
-      original.Name = editTaco.Name.Length > 0 ? editTaco.Name : original.Name;
+      original.Name = editTaco.Name == null ? original.Name : editTaco.Name;
       original.Price = editTaco.Price > 0 ? editTaco.Price : original.Price;
-      original.Description = editTaco.Description.Length > 0 ? editTaco.Description : original.Description;
+      original.Description = editTaco.Description == null ? original.Description : editTaco.Description;
       return _repo.Edit(original);
     }
   }
